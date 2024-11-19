@@ -1,0 +1,1060 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+Smart Wash
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+ </head>
+ <body class="bg-white text-gray-800">
+  <header class="flex justify-between items-center p-4 border-b">
+   <div class="text-lg font-semibold">
+    Schedule a Pickup
+   </div>
+   <div class="flex items-center space-x-4">
+    <a class="text-purple-600 hover:underline" href="#">
+     About Us
+    </a>
+    <div class="w-8 h-8 rounded-full bg-gray-300">
+    </div>
+   </div>
+  </header>
+  <main class="max-w-6xl mx-auto p-4 relative">
+   <div class="relative">
+    <img alt="Illustration of people doing laundry" class="w-full rounded-lg" height="300" src="assets/images/vec.jpg" width="800"/>
+    <div class="absolute -bottom-32 left-0 p-6 flex items-center space-x-6">
+     <img alt="Smart Wash Logo" class="w-48 h-48 rounded-full" height="200" src="assets/images/BO.png" width="200"/>
+    </div>
+   </div>
+   <div class="mt-10 ml-20 flex flex-col items-center">
+    <h1 class="text-2xl font-bold">
+    SMART WASH
+    </h1>
+    <p class="text-gray-600">
+     Fresh Clean, Always On Time.
+    </p>
+   </div>
+
+   <div class="mt-6 flex justify-between items-center">
+    <input class="w-full max-w-md px-4 py-2 border rounded-lg" placeholder="Search and select items..." type="text"/>
+    <button class="ml-4 px-4 py-2 bg-purple-600 text-white rounded-lg">
+     In a rush? skip basket
+    </button>
+   </div>
+  </main>
+ </body>
+</html>
+
+<html>
+ <head>
+  <title>
+   Smart Wash
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+    window.onload = function () {
+    showSection('laundry');
+};
+function validateInput(id) {
+    var value = parseInt(document.getElementById(id).value, 10);
+    if (isNaN(value) || value < 0) {
+        document.getElementById(id).value = 0;
+    }
+}
+function calculateTotal() {
+    let items = [
+        { id: 'shawl', price: 30 },
+        { id: 'tie', price: 20 },
+        { id: 'panche', price: 50 },
+        { id: 'pyjama', price: 50 },
+        { id: 'kurthaFancy', price: 100 },
+        { id: 'jacket', price: 100 },
+        { id: 'kurthaHeavy', price: 150 },
+        { id: 'overcoat', price: 100 },
+        { id: 'waistcoat', price: 50 }
+    ];
+    let total = 0;
+    items.forEach(item => {
+        let quantity = parseInt(document.getElementById(item.id).value, 10) || 0;
+        total += quantity * item.price;
+    });
+    alert("Total Price: Rs. " + total);
+}
+
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script>
+ function showSection(sectionId, button) {
+    // Remove the 'active' class from all buttons
+    document.querySelectorAll('.custom-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Add the 'active' class to the clicked button
+    button.classList.add('active');
+
+    // Optionally, you can show the corresponding section here
+    console.log("Showing section:", sectionId);
+}
+
+
+   function incrementValue(id) {
+            var value = parseInt(document.getElementById(id).value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById(id).value = value;
+        }
+
+        function decrementValue(id) {
+            var value = parseInt(document.getElementById(id).value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById(id).value = value;
+        }
+
+        function showSection(sectionId) {
+            var sections = document.getElementsByClassName('section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+            }
+            document.getElementById(sectionId).style.display = 'block';
+        }
+  </script>
+  <style>
+.custom-btn {
+    background-color: white;
+    color: #2a52be;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #2a52be;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-btn:hover {
+    background-color: #2a52be;
+    color: white;
+}
+
+.custom-btn.active {
+    background-color: #2a52be;
+    color: white;
+}
+
+    </style>
+ </head>
+ <body class="bg-gray-100">
+  <div class="container mx-auto p-4">
+   <div class="flex justify-center mb-4">
+    <div>
+        <button class="custom-btn" onclick="showSection('laundry', this)">
+            Laundry
+        </button>
+        <button class="custom-btn" onclick="showSection('dryClean', this)">
+            Dry Clean
+        </button>
+        <button class="custom-btn" onclick="showSection('steamPress', this)">
+            Steam Press
+        </button>
+        <button class="custom-btn" onclick="showSection('shoeCleaning', this)">
+            Shoe Cleaning
+        </button>
+    </div>
+    
+   </div>
+   <div class="section bg-white p-4 rounded shadow" id="laundry" style="display: none;">
+    <h2 class="text-xl font-semibold mb-4">
+        Laundry Services
+    </h2>
+    <div class="space-y-4">
+        <!-- Wash & Iron -->
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img alt="Wash & Iron" class="w-12 h-12" src="https://via.placeholder.com/50" />
+                <div>
+                    <p class="font-semibold">Wash & Iron</p>
+                    <p class="text-gray-500">1 x Rs.99/kg</p>
+                    <p class="text-gray-400 text-sm">
+                        Note: Please add approx weight. We will update exact weight at the time of pickup.
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('washIron')">-</button>
+                <input class="w-8 text-center border border-gray-300" id="washIron" type="text" value="0" />
+                <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('washIron')">+</button>
+            </div>
+        </div>
+
+        <!-- Wash & Fold -->
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img alt="Wash & Fold" class="w-12 h-12" src="https://via.placeholder.com/50" />
+                <div>
+                    <p class="font-semibold">Wash & Fold</p>
+                    <p class="text-gray-500">1 x Rs.60/kg</p>
+                    <p class="text-gray-400 text-sm">
+                        Note: Please add approx weight. We will update exact weight at the time of pickup.
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('washFold')">-</button>
+                <input class="w-8 text-center border border-gray-300" id="washFold" type="text" value="0" />
+                <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('washFold')">+</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   <div class="section bg-white p-4 rounded shadow" id="dryClean" style="display: none;">
+    <div>
+    <h2 class="text-xl font-semibold mb-4">
+     Mens Wear
+    </h2>
+    <div class="space-y-4">
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Shawl / Lohi" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/WO7tWe2LAlQbdCLlbs1FSNQuIZMsiwgwRxoEnMWSms3AUF5JA.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Shawl / Lohi
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.30/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('shawlDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="shawlDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('shawlDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Tie" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/qLxQL9r5x9KaFlE7eQ8gaRvGf7l47eejM6nvfT3Z7aW1fpi8E.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Tie
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.20/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('tieDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="tieDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('tieDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Panche - Kanduva" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/rofff0GzGtYfGRpq4bWH2j91FGRBBneKvdO0tzebHevfEoKyTA.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Panche - Kanduva
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.50/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('pancheDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="pancheDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('pancheDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Pyjama / Salwar" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/xTLxiRLzPwqfDKXqorsF9BQNeHuF1w60e2lChM6IOVqAQVknA.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Pyjama / Salwar
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.50/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('pyjamaDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="pyjamaDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('pyjamaDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Kurtha Fancy" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/YZAo4eEZtXSZA60YjY6lUJ2fmXS9RJ1XDe1wTs0CfRldgqIPB.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Kurtha Fancy
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.100/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('kurthaFancyDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="kurthaFancyDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('kurthaFancyDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Jacket" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/9pKLYersqSUtfkx36Q5Cgy4NZpftua5W0CTgvHESuLKMQVknA.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Jacket
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.100/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('jacketDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="jacketDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('jacketDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Kurtha Heavy" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/RAU4CdCfPekPjEJjC6erczHSqf3BAllfWv4LAzYLINqQAVReE.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Kurtha Heavy
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.150/piece
+        </p>
+       </div>
+      </div>
+      
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('kurthaHeavyDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="kurthaHeavyDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('kurthaHeavyDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Overcoat" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/2q1fx2bQOPSZPqHicYcAiyA7WiproCKEN9PvTMrNxvrenKyTA.jpg" width="50"/>
+      
+      </div>
+     </div>
+    </div>
+   </div>
+   
+   <h2 class="text-xl font-semibold mb-4">
+    Ladies Wear
+</h2>
+<div class="space-y-4">
+    <!-- Skirt - Pencil / Pleated / Other -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img alt="Skirt" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/Skirt.jpg" width="50"/>
+            <div>
+                <p class="font-semibold">
+                    Skirt - Pencil / Pleated / Other
+                </p>
+                <p class="text-gray-500">
+                    1 x Rs.80/piece
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('skirtDry')">
+                -
+            </button>
+            <input class="w-8 text-center border border-gray-300" id="skirtDry" type="text" value="0"/>
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('skirtDry')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <!-- Anarkali Suit -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img alt="Anarkali Suit" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/AnarkaliSuit.jpg" width="50"/>
+            <div>
+                <p class="font-semibold">
+                    Anarkali Suit
+                </p>
+                <p class="text-gray-500">
+                    1 x Rs.450/piece
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('anarkaliDry')">
+                -
+            </button>
+            <input class="w-8 text-center border border-gray-300" id="anarkaliDry" type="text" value="0"/>
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('anarkaliDry')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <!-- Stocking Pair / Regular -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img alt="Stocking Pair" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/StockingPair.jpg" width="50"/>
+            <div>
+                <p class="font-semibold">
+                    Stocking Pair / Regular
+                </p>
+                <p class="text-gray-500">
+                    1 x Rs.50/piece
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('stockingDry')">
+                -
+            </button>
+            <input class="w-8 text-center border border-gray-300" id="stockingDry" type="text" value="0"/>
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('stockingDry')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <!-- Stole / Scarf -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img alt="Stole / Scarf" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/StoleScarf.jpg" width="50"/>
+            <div>
+                <p class="font-semibold">
+                    Stole / Scarf
+                </p>
+                <p class="text-gray-500">
+                    1 x Rs.80/piece
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('stoleDry')">
+                -
+            </button>
+            <input class="w-8 text-center border border-gray-300" id="stoleDry" type="text" value="0"/>
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('stoleDry')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <!-- Hand Bag -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img alt="Hand Bag" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/HandBag.jpg" width="50"/>
+            <div>
+                <p class="font-semibold">
+                    Hand Bag
+                </p>
+                <p class="text-gray-500">
+                    1 x Rs.300/piece
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('handBagDry')">
+                -
+            </button>
+            <input class="w-8 text-center border border-gray-300" id="handBagDry" type="text" value="0"/>
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('handBagDry')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <!-- Kameez / Kurta -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img alt="Kameez / Kurta" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/KameezKurta.jpg" width="50"/>
+            <div>
+                <p class="font-semibold">
+                    Kameez / Kurta
+                </p>
+                <p class="text-gray-500">
+                    1 x Rs.200/piece
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('kameezKurtaDry')">
+                -
+            </button>
+            <input class="w-8 text-center border border-gray-300" id="kameezKurtaDry" type="text" value="0"/>
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('kameezKurtaDry')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <!-- Petti Coat -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img alt="Petti Coat" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/PettiCoat.jpg" width="50"/>
+            <div>
+                <p class="font-semibold">
+                    Petti Coat
+                </p>
+                <p class="text-gray-500">
+                    1 x Rs.150/piece
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('pettiCoatDry')">
+                -
+            </button>
+            <input class="w-8 text-center border border-gray-300" id="pettiCoatDry" type="text" value="0"/>
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('pettiCoatDry')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <!-- Top Fancy -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img alt="Top Fancy" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/TopFancy.jpg" width="50"/>
+            <div>
+                <p class="font-semibold">
+                    Top Fancy
+                </p>
+                <p class="text-gray-500">
+                    1 x Rs.150/piece
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('topFancyDry')">
+                -
+            </button>
+            <input class="w-8 text-center border border-gray-300" id="topFancyDry" type="text" value="0"/>
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('topFancyDry')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <!-- Saree Heavy Silk -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img alt="Saree Heavy Silk" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/SareeHeavySilk.jpg" width="50"/>
+            <div>
+                <p class="font-semibold">
+                    Saree Heavy Silk
+                </p>
+                <p class="text-gray-500">
+                    1 x Rs.400/piece
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('sareeHeavySilkDry')">
+                -
+            </button>
+            <input class="w-8 text-center border border-gray-300" id="sareeHeavySilkDry" type="text" value="0"/>
+            <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('sareeHeavySilkDry')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <!-- More items can follow in the same pattern as above -->
+</div>
+</div>
+
+  
+   <div class="section bg-white p-4 rounded shadow" id="steamPress" style="display: none;">
+    <h2 class="text-xl font-semibold mb-4">
+     Mens Wear
+    </h2>
+    <div class="space-y-4">
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Shawl / Lohi" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/WO7tWe2LAlQbdCLlbs1FSNQuIZMsiwgwRxoEnMWSms3AUF5JA.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Shawl / Lohi
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.30/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('shawlDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="shawlDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('shawlDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Tie" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/qLxQL9r5x9KaFlE7eQ8gaRvGf7l47eejM6nvfT3Z7aW1fpi8E.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Tie
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.20/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('tieDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="tieDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('tieDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Panche - Kanduva" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/rofff0GzGtYfGRpq4bWH2j91FGRBBneKvdO0tzebHevfEoKyTA.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Panche - Kanduva
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.50/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('pancheDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="pancheDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('pancheDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Pyjama / Salwar" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/xTLxiRLzPwqfDKXqorsF9BQNeHuF1w60e2lChM6IOVqAQVknA.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Pyjama / Salwar
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.50/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('pyjamaDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="pyjamaDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('pyjamaDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Kurtha Fancy" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/YZAo4eEZtXSZA60YjY6lUJ2fmXS9RJ1XDe1wTs0CfRldgqIPB.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Kurtha Fancy
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.100/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('kurthaFancyDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="kurthaFancyDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('kurthaFancyDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Jacket" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/9pKLYersqSUtfkx36Q5Cgy4NZpftua5W0CTgvHESuLKMQVknA.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Jacket
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.100/piece
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('jacketDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="jacketDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('jacketDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+       <img alt="Kurtha Heavy" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/RAU4CdCfPekPjEJjC6erczHSqf3BAllfWv4LAzYLINqQAVReE.jpg" width="50"/>
+       <div>
+        <p class="font-semibold">
+         Kurtha Heavy
+        </p>
+        <p class="text-gray-500">
+         1 x Rs.150/piece
+        </p>
+       </div>
+      </div>
+      
+      <div class="flex items-center space-x-2">
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('kurthaHeavyDry')">
+        -
+       </button>
+       <input class="w-8 text-center border border-gray-300" id="kurthaHeavyDry" type="text" value="0"/>
+       <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('kurthaHeavyDry')">
+        +
+       </button>
+      </div>
+     </div>
+     <div class="flex items-center justify-between">
+      
+     </div>
+     <div class="section bg-white p-4 rounded shadow" id="ladiesWear" style="display: none;">
+        <h2 class="text-xl font-semibold mb-4">
+            Ladies Wear
+        </h2>
+        <div class="space-y-4">
+            <!-- Skirt - Pencil / Pleated / Other -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img alt="Skirt" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/Skirt.jpg" width="50"/>
+                    <div>
+                        <p class="font-semibold">
+                            Skirt - Pencil / Pleated / Other
+                        </p>
+                        <p class="text-gray-500">
+                            1 x Rs.80/piece
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('skirtDry')">
+                        -
+                    </button>
+                    <input class="w-8 text-center border border-gray-300" id="skirtDry" type="text" value="0"/>
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('skirtDry')">
+                        +
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Anarkali Suit -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img alt="Anarkali Suit" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/AnarkaliSuit.jpg" width="50"/>
+                    <div>
+                        <p class="font-semibold">
+                            Anarkali Suit
+                        </p>
+                        <p class="text-gray-500">
+                            1 x Rs.450/piece
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('anarkaliDry')">
+                        -
+                    </button>
+                    <input class="w-8 text-center border border-gray-300" id="anarkaliDry" type="text" value="0"/>
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('anarkaliDry')">
+                        +
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Stocking Pair / Regular -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img alt="Stocking Pair" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/StockingPair.jpg" width="50"/>
+                    <div>
+                        <p class="font-semibold">
+                            Stocking Pair / Regular
+                        </p>
+                        <p class="text-gray-500">
+                            1 x Rs.50/piece
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('stockingDry')">
+                        -
+                    </button>
+                    <input class="w-8 text-center border border-gray-300" id="stockingDry" type="text" value="0"/>
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('stockingDry')">
+                        +
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Stole / Scarf -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img alt="Stole / Scarf" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/StoleScarf.jpg" width="50"/>
+                    <div>
+                        <p class="font-semibold">
+                            Stole / Scarf
+                        </p>
+                        <p class="text-gray-500">
+                            1 x Rs.80/piece
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('stoleDry')">
+                        -
+                    </button>
+                    <input class="w-8 text-center border border-gray-300" id="stoleDry" type="text" value="0"/>
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('stoleDry')">
+                        +
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Hand Bag -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img alt="Hand Bag" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/HandBag.jpg" width="50"/>
+                    <div>
+                        <p class="font-semibold">
+                            Hand Bag
+                        </p>
+                        <p class="text-gray-500">
+                            1 x Rs.300/piece
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('handBagDry')">
+                        -
+                    </button>
+                    <input class="w-8 text-center border border-gray-300" id="handBagDry" type="text" value="0"/>
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('handBagDry')">
+                        +
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Kameez / Kurta -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img alt="Kameez / Kurta" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/KameezKurta.jpg" width="50"/>
+                    <div>
+                        <p class="font-semibold">
+                            Kameez / Kurta
+                        </p>
+                        <p class="text-gray-500">
+                            1 x Rs.200/piece
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('kameezKurtaDry')">
+                        -
+                    </button>
+                    <input class="w-8 text-center border border-gray-300" id="kameezKurtaDry" type="text" value="0"/>
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('kameezKurtaDry')">
+                        +
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Petti Coat -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img alt="Petti Coat" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/PettiCoat.jpg" width="50"/>
+                    <div>
+                        <p class="font-semibold">
+                            Petti Coat
+                        </p>
+                        <p class="text-gray-500">
+                            1 x Rs.150/piece
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('pettiCoatDry')">
+                        -
+                    </button>
+                    <input class="w-8 text-center border border-gray-300" id="pettiCoatDry" type="text" value="0"/>
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('pettiCoatDry')">
+                        +
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Top Fancy -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img alt="Top Fancy" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/TopFancy.jpg" width="50"/>
+                    <div>
+                        <p class="font-semibold">
+                            Top Fancy
+                        </p>
+                        <p class="text-gray-500">
+                            1 x Rs.150/piece
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('topFancyDry')">
+                        -
+                    </button>
+                    <input class="w-8 text-center border border-gray-300" id="topFancyDry" type="text" value="0"/>
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('topFancyDry')">
+                        +
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Saree Heavy Silk -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img alt="Saree Heavy Silk" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/SareeHeavySilk.jpg" width="50"/>
+                    <div>
+                        <p class="font-semibold">
+                            Saree Heavy Silk
+                        </p>
+                        <p class="text-gray-500">
+                            1 x Rs.400/piece
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('sareeHeavySilkDry')">
+                        -
+                    </button>
+                    <input class="w-8 text-center border border-gray-300" id="sareeHeavySilkDry" type="text" value="0"/>
+                    <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('sareeHeavySilkDry')">
+                        +
+                    </button>
+                </div>
+            </div>
+    
+            <!-- More items can follow in the same pattern as above -->
+        </div>
+    </div>
+    
+    </div>
+  
+   </div>
+   <div class="section bg-white p-4 rounded shadow" id="shoeCleaning" style="display: none;">
+    <h2 class="text-xl font-semibold mb-4">
+        Mens Wear
+    </h2>
+    <div class="space-y-4">
+        <!-- Shoes (Kids Pair) -->
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img alt="Kids Shoes" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/KidsShoes.jpg" width="50"/>
+                <div>
+                    <p class="font-semibold">
+                        Shoes (Kids Pair)
+                    </p>
+                    <p class="text-gray-500">
+                        1 x Rs.150/piece
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('kidsShoesDry')">
+                    -
+                </button>
+                <input class="w-8 text-center border border-gray-300" id="kidsShoesDry" type="text" value="0"/>
+                <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('kidsShoesDry')">
+                    +
+                </button>
+            </div>
+        </div>
+
+        <!-- Shoes (Adult Pair) -->
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img alt="Adult Shoes" class="w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/AdultShoes.jpg" width="50"/>
+                <div>
+                    <p class="font-semibold">
+                        Shoes (Adult Pair)
+                    </p>
+                    <p class="text-gray-500">
+                        1 x Rs.400/piece
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button class="bg-purple-700 text-white px-2 py-1" onclick="decrementValue('adultShoesDry')">
+                    -
+                </button>
+                <input class="w-8 text-center border border-gray-300" id="adultShoesDry" type="text" value="0"/>
+                <button class="bg-purple-700 text-white px-2 py-1" onclick="incrementValue('adultShoesDry')">
+                    +
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="bg-[#2a52be] text-white px-4 py-2 rounded" type="submit">
+    Next
+</button>
+
+  
+ </body>
+</html>
